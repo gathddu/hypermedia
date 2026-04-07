@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="whois">
+    <div class="prompt-line">
+        <span class="prompt">~</span>
+        <span class="command">whois jess</span>
+    </div>
+
+    <h2>whois</h2>
+
+    <section class="entry">
+        <span class="label">name</span>
+        <span class="value">jess forster</span>
+    </section>
+
+    <section class="entry">
+        <span class="label">role</span>
+        <span class="value">software developer @ <a href="https://www.dataprev.gov.br" target="_blank">dataprev</a></span>
+    </section>
+
+    <section class="entry">
+        <span class="label">location</span>
+        <span class="value">brazil</span>
+    </section>
+
+    <section class="entry">
+        <span class="label">stack</span>
+        <span class="value">java · spring boot · react · astro · postgresql · docker · nixos</span>
+    </section>
+
+    <section class="entry">
+        <span class="label">interests</span>
+        <span class="value">clean architecture · creative coding · art · open-source</span>
+    </section>
+
+    <section class="entry">
+        <span class="label">github</span>
+        <span class="value"><a href="https://github.com/gathddu" target="_blank">github.com/gathddu</a></span>
+    </section>
+</Base>
+
+<style>
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: var(--accent);
+    }
+
+    .prompt-line {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .prompt {
+        color: var(--accent);
+    }
+
+    .command {
+        color: var(--text-bright);
+    }
+
+    .entry {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 1rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+    }
+
+    .label {
+        color: var(--text-dim);
+    }
+
+    .value {
+        color: var(--text);
+    }
+</style>
