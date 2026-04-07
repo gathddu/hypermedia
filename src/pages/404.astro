@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="404">
+  <div class="prompt-line">
+    <span class="prompt">~/</span>
+    <span class="command">cd <span class="arg">{Astro.url.pathname}</span></span>
+  </div>
+
+  <div class="error-block">
+    <span class="code">404</span>
+    <span class="msg">no such file or directory</span>
+  </div>
+
+  <p class="hint">
+    the path you followed doesn't exist.  
+
+    <a href="/">go back home →</a>
+  </p>
+</Base>
+
+<style>
+    .prompt-line {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .prompt {
+        color: var(--accent);
+    }
+
+    .arg {
+        color: var(--text);
+    }
+
+    .error-block {
+        display: flex;
+        align-items: baseline;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .code {
+        font-size: 4rem;
+        color: var(--accent);
+        line-height: 1;
+    }
+
+    .msg {
+        font-size: 1rem;
+        color: var(--text-dim);
+    }
+
+    .hint {
+        color: var(--text);
+        font-size: 0.88rem;
+        line-height: 2;
+    }
+
+    .hint a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+
+    .hint a:hover {
+        text-decoration: underline;
+    }
+</style>

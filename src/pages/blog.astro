@@ -19,7 +19,7 @@ import Base from '../layouts/Base.astro';
         <span class="post-date">2025-04-07</span>
         <span class="post-title">hello, world</span>
       </div>
-      
+
       <p class="post-desc">first post. the site is live. more to come.</p>
     </article>
 
@@ -27,63 +27,68 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--accent);
-  }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+    }
 
-  .prompt-line {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
+    .prompt-line {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
 
-  .prompt { color: var(--accent); }
-  .command { color: var(--text-bright); }
+    .prompt {
+        color: var(--accent);
+    }
+  
+    .command {
+        color: var(--text-bright);
+    }
 
-  .intro {
-    color: var(--text-dim);
-    font-size: 0.88rem;
-    margin-bottom: 2rem;
-  }
+    .intro {
+        color: var(--text-dim);
+        font-size: 0.88rem;
+        margin-bottom: 2rem;
+    }
 
-  .posts {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+    .posts {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
 
-  .post {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
+    .post {
+        padding: 1.2rem 0;
+        border-bottom: 1px solid var(--border);
+    }
 
-  .post-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 0.4rem;
-  }
+    .post-header {
+        display: flex;
+        align-items: baseline;
+        gap: 1.5rem;
+        margin-bottom: 0.4rem;
+    }
 
-  .post-date {
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    min-width: 90px;
-  }
+    .post-date {
+        color: var(--text-dim);
+        font-size: 0.8rem;
+        min-width: 90px;
+    }
 
-  .post-title {
-    color: var(--text-bright);
-    font-size: 1rem;
-  }
+    .post-title {
+        color: var(--text-bright);
+        font-size: 1rem;
+    }
 
-  .post-desc {
-    color: var(--text);
-    font-size: 0.88rem;
-    margin: 0;
-    line-height: 1.6;
-    padding-left: calc(90px + 1.5rem);
-  }
+    .post-desc {
+        color: var(--text);
+        font-size: 0.88rem;
+        margin: 0;
+        line-height: 1.6;
+        padding-left: calc(90px + 1.5rem);
+    }
 </style>

@@ -19,7 +19,7 @@ import Base from '../layouts/Base.astro';
         <span class="experiment-name">coming soon</span>
         <span class="experiment-tag">wip</span>
       </div>
-      
+
       <p class="experiment-desc">this space is being filled. check back later.</p>
     </article>
 
@@ -27,63 +27,68 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--accent);
-  }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+    }
 
-  .prompt-line {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
+    .prompt-line {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
 
-  .prompt { color: var(--accent); }
-  .command { color: var(--text-bright); }
+    .prompt {
+        color: var(--accent);
+    }
+    
+    .command {
+        color: var(--text-bright);
+    }
 
-  .intro {
-    color: var(--text-dim);
-    font-size: 0.88rem;
-    margin-bottom: 2rem;
-  }
+    .intro {
+        color: var(--text-dim);
+        font-size: 0.88rem;
+        margin-bottom: 2rem;
+    }
 
-  .experiments {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+    .experiments {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
 
-  .experiment {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
+    .experiment {
+        padding: 1.2rem 0;
+        border-bottom: 1px solid var(--border);
+    }
 
-  .experiment-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.4rem;
-  }
+    .experiment-header {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 0.4rem;
+    }
 
-  .experiment-name {
-    color: var(--text-bright);
-    font-size: 1rem;
-  }
+    .experiment-name {
+        color: var(--text-bright);
+        font-size: 1rem;
+    }
 
-  .experiment-tag {
-    color: var(--text-dim);
-    font-size: 0.75rem;
-    border: 1px solid var(--border);
-    padding: 0.1rem 0.4rem;
-  }
+    .experiment-tag {
+        color: var(--text-dim);
+        font-size: 0.75rem;
+        border: 1px solid var(--border);
+        padding: 0.1rem 0.4rem;
+    }
 
-  .experiment-desc {
-    color: var(--text);
-    font-size: 0.88rem;
-    margin: 0;
-    line-height: 1.6;
-  }
+    .experiment-desc {
+        color: var(--text);
+        font-size: 0.88rem;
+        margin: 0;
+        line-height: 1.6;
+    }
 </style>

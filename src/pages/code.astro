@@ -42,66 +42,71 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--accent);
-  }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: var(--accent);
+    }
 
-  .prompt-line {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
+    .prompt-line {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
 
-  .prompt { color: var(--accent); }
-  .command { color: var(--text-bright); }
+    .prompt {
+        color: var(--accent);
+    }
 
-  .projects {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+    .command {
+        color: var(--text-bright);
+    }
 
-  .project {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
+    .projects {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
 
-  .project-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.4rem;
-  }
+    .project {
+        padding: 1.2rem 0;
+        border-bottom: 1px solid var(--border);
+    }
 
-  .project-name {
-    color: var(--text-bright);
-    font-size: 1rem;
-  }
+    .project-header {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 0.4rem;
+    }
 
-  .project-lang {
-    color: var(--text-dim);
-    font-size: 0.8rem;
-  }
+    .project-name {
+        color: var(--text-bright);
+        font-size: 1rem;
+    }
 
-  .project-desc {
-    color: var(--text);
-    font-size: 0.88rem;
-    margin: 0 0 0.6rem 0;
-    line-height: 1.6;
-  }
+    .project-lang {
+        color: var(--text-dim);
+        font-size: 0.8rem;
+    }
 
-  .project-links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.8rem;
-    margin-right: 1rem;
-  }
+    .project-desc {
+        color: var(--text);
+        font-size: 0.88rem;
+        margin: 0 0 0.6rem 0;
+        line-height: 1.6;
+    }
 
-  .project-links a:hover {
-    text-decoration: underline;
-  }
+    .project-links a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.8rem;
+        margin-right: 1rem;
+    }
+
+    .project-links a:hover {
+        text-decoration: underline;
+    }
 </style>
