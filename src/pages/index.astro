@@ -4,6 +4,10 @@ import Base from '../layouts/Base.astro';
 
 <Base title="home">
 	<section>
+		<div class="prompt-line">
+			<span class="prompt">~</span>
+			<span class="command">whoami</span>
+		</div>
 		<h1>jess</h1>
 		<p class="tagline">software developer @ <a href="https://www.dataprev.gov.br" target="_blank">dataprev</a></p>
 	</section>
@@ -29,6 +33,8 @@ import Base from '../layouts/Base.astro';
 		<a href="/code">code</a>
 		<span class="dim">—</span>
 		<a href="/lab">lab</a>
+		<span class="dim">—</span>
+		<a href="/blog">blog</a>
 		<span class="dim">—</span>
 		<a href="https://github.com/gathddu" target="_blank">github</a>
 	</section>
@@ -58,6 +64,22 @@ import Base from '../layouts/Base.astro';
 
 	.dim {
 		color: var(--text-dim);
+	}
+
+	.prompt-line {
+		font-size: 0.85rem;
+		color: var(--text-dim);
+		display: flex;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.prompt {
+		color: var((--accent));
+	}
+
+	.command {
+		color: var(--text-bright);
 	}
 </style>
 
