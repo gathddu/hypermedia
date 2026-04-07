@@ -78,3 +78,15 @@ pre code {
   background: var(--accent);
   color: #000;
 }
+
+@keyframes blink {
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0;}
+}
+
+.cursor::after {
+    content: '▊';
+    color: var(--accent);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
