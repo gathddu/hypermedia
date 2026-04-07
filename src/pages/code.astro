@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="code">
+  <div class="prompt-line">
+    <span class="prompt">~/code</span>
+    <span class="command">ls -la</span>
+  </div>
+
+  <h2>code</h2>
+
+  <div class="projects">
+
+    <article class="project">
+      <div class="project-header">
+        <span class="project-name">hypermedia</span>
+        <span class="project-lang">astro</span>
+      </div>
+
+      <p class="project-desc">this site. a personal node on the web. built with astro and a lot of monospace.</p>
+      
+      <div class="project-links">
+        <a href="https://github.com/gathddu/hypermedia" target="_blank">src</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-header">
+        <span class="project-name">tickr</span>
+        <span class="project-lang">react · node</span>
+      </div>
+
+      <p class="project-desc">task management app with time tracking, analytics and a clean interface.</p>
+      
+      <div class="project-links">
+        <a href="https://github.com/gathddu" target="_blank">src</a>
+      </div>
+    </article>
+
+  </div>
+</Base>
+
+<style>
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent );
+  }
+
+  .prompt-line {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prompt { color: var(--accent); }
+  .command { color: var(--text-bright); }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-name {
+    color: var(--text-bright);
+    font-size: 1rem;
+  }
+
+  .project-lang {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+
+  .project-desc {
+    color: var(--text);
+    font-size: 0.88rem;
+    margin: 0 0 0.6rem 0;
+    line-height: 1.6;
+  }
+
+  .project-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-right: 1rem;
+  }
+
+  .project-links a:hover {
+    text-decoration: underline;
+  }
+</style>
