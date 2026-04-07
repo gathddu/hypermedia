@@ -3,5 +3,61 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="home">
-	<p>hello.</p>
+	<section>
+		<h1>jess</h1>
+		<p class="tagline">software developer @ <a href="https://www.dataprev.gov.br" target="_blank">dataprev</a></p>
+	</section>
+
+	<hr/>
+
+	<section class="bio">
+		<p>
+			i write code for a living and for fun. currently building internal systems
+			for the brazilian social security infrastructure. interested in clean architecture,
+			creative coding and making things that feel good to use.
+		</p>
+		<p>
+			this site is where i keep my work, experiments and whatever else i feel like putting here.
+		</p>
+	</section>
+
+	<hr/>
+
+	<section class="links">
+		<a href="/whois">whois</a>
+		<span class="dim">—</span>
+		<a href="/code">code</a>
+		<span class="dim">—</span>
+		<a href="/lab">lab</a>
+		<span class="dim">—</span>
+		<a href="https://github.com/gathddu" target="_blank">github</a>
+	</section>
 </Base>
+
+<style>
+	h1 {
+		font-size: 2rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.tagline {
+		color: var(--text-dim);
+		font-size: 0.9rem;
+	}
+
+	.bio p {
+		margin-bottom: 1rem;
+	}
+
+	.links {
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+		font-size: 0.9rem;
+	}
+
+	.dim {
+		color: var(--text-dim);
+	}
+</style>
+
