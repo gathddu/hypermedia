@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "jess's corner of the web" } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} :: hypermedia</title>
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <a href="/" class={currentPath === '/' ? 'active' : ''}>~</a>
+        <span class="sep">/</span>
+        <a href="/whois" class={currentPath.startsWith('/whois') ? 'active' : ''}>whois</a>
+        <span class="sep">/</span>
+        <a href="/code" class={currentPath.startsWith('/code') ? 'active' : ''}>code</a>
+        <span class="sep">/</span>
+        <a href="/lab" class={currentPath.startsWith('/lab') ? 'active' : ''}>lab</a>
+        <span class="sep">/</span>
+        <a href="/blog" class={currentPath.startsWith('/blog') ? 'active' : ''}>blog</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <span>src available on <a href="https://github.com/gathddu/hypermedia" target="_blank">github</a></span>
+    </footer>
+
+  </body>
+
+</html>
+
+<style>
+  header {
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border );
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  nav a {
+    color: var(--text-dim);
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .sep {
+    color: var(--border);
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+</style>
