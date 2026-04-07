@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="lab">
+  <div class="prompt-line">
+    <span class="prompt">~/lab</span>
+    <span class="command">ls -la</span>
+  </div>
+
+  <h2>lab</h2>
+
+  <p class="intro">small experiments. things i built to learn, explore or just because.</p>
+
+  <div class="experiments">
+
+    <article class="experiment">
+      <div class="experiment-header">
+        <span class="experiment-name">coming soon</span>
+        <span class="experiment-tag">wip</span>
+      </div>
+      
+      <p class="experiment-desc">this space is being filled. check back later.</p>
+    </article>
+
+  </div>
+</Base>
+
+<style>
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+
+  .prompt-line {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prompt { color: var(--accent); }
+  .command { color: var(--text-bright); }
+
+  .intro {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    margin-bottom: 2rem;
+  }
+
+  .experiments {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .experiment {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .experiment-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .experiment-name {
+    color: var(--text-bright);
+    font-size: 1rem;
+  }
+
+  .experiment-tag {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.4rem;
+  }
+
+  .experiment-desc {
+    color: var(--text);
+    font-size: 0.88rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+</style>
