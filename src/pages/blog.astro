@@ -1,29 +1,38 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const posts = (await getCollection("blog"))
+    .filter((post: CollectionEntry<'blog'>) => !post.data.draft)
+    .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Base title="blog">
-  <div class="prompt-line">
-    <span class="prompt">~/blog</span>
-    <span class="command">ls -la</span>
-  </div>
+    <div class="prompt-line">
+        <span class="prompt">~/blog</span>
+        <span class="command">ls -la</span>
+    </div>
 
-  <h2>blog</h2>
+    <h2>blog</h2>
 
-  <p class="intro">notes on code, systems and whatever is on my mind.</p>
+    <p class="intro">notes on code, systems and whatever is on my mind.</p>
 
-  <div class="posts">
-
-    <article class="post">
-      <div class="post-header">
-        <span class="post-date">2025-04-07</span>
-        <span class="post-title">hello, world</span>
-      </div>
-
-      <p class="post-desc">first post. the site is live. more to come.</p>
-    </article>
-
-  </div>
+    <div class="psots">
+        {posts.map((post: CollectionEntry<'blog'>) => (
+            <article class="post">
+                <div class="post-header">
+                    <span class="post-date">
+                        {post.data.date.toISOString().slice(0, 10)}
+                    </span>
+                    <a href={`/blog/${post.id}`} class="post-title">{post.data.title}</a>
+                </div>
+                {post.data.description && (
+                    <p class="post-desc">{post.data.description}</p>
+                )}
+            </article>
+        ))}
+    </div>
 </Base>
 
 <style>
@@ -44,7 +53,7 @@ import Base from '../layouts/Base.astro';
     .prompt {
         color: var(--accent);
     }
-  
+
     .command {
         color: var(--text-bright);
     }
@@ -82,6 +91,10 @@ import Base from '../layouts/Base.astro';
     .post-title {
         color: var(--text-bright);
         font-size: 1rem;
+    }
+
+    .post-title:hover {
+        color: var(--accent);
     }
 
     .post-desc {
