@@ -23,6 +23,12 @@ import Base from '../layouts/Base.astro';
 		<p>
 			this site is where i keep my work, experiments and whatever else i feel like putting here.
 		</p>
+
+		<div class="status">
+			<span class="dot green"></span><span>available</span>
+			<span class="dot yellow"></span><span>building</span>
+			<span class="dot blue"></span><span>writing</span>
+		</div>
 	</section>
 
 	<hr/>
@@ -119,6 +125,35 @@ import Base from '../layouts/Base.astro';
 	.card-desc {
 		color: var(--text-dim);
 		font-size: 0.78rem;
+	}
+
+	.status {
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+		margin-top: 0.75rem;
+		font-size: 0.78rem;
+		color: var(--text-dim);
+	}
+
+	.dot {
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		margin-right: 0.3rem;
+	}
+
+	.green {
+		background: #00ff99;
+	}
+
+	.yellow {
+		background: #f5c842;
+	}
+
+	.blue {
+		background: #5bc8f5;
 	}
 </style>
 
