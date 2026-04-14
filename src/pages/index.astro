@@ -27,16 +27,27 @@ import Base from '../layouts/Base.astro';
 
 	<hr/>
 
-	<section class="links">
-		<a href="/whois">whois</a>
-		<span class="dim">—</span>
-		<a href="/code">code</a>
-		<span class="dim">—</span>
-		<a href="/lab">lab</a>
-		<span class="dim">—</span>
-		<a href="/blog">blog</a>
-		<span class="dim">—</span>
-		<a href="https://github.com/gathddu" target="_blank">github</a>
+	<section class="cards">
+		<a href="/whois" class="card">
+			<span class="card-icon">◈</span>
+			<span class="card-label">whois</span>
+			<span class="card-desc">who i am</span>
+		</a>
+		<a href="/code" class="card">
+			<span class="card-icon">&lt;/&gt;</span>
+			<span class="card-label">code</span>
+			<span class="card-desc">things i've built</span>
+		</a>
+		<a href="/lab" class="card">
+			<span class="card-icon">⚗</span>
+			<span class="card-label">lab</span>
+			<span class="card-desc">experiments</span>
+		</a>
+		<a href="/blog" class="card">
+			<span class="card-icon">✦</span>
+			<span class="card-label">blog</span>
+			<span class="card-desc">writing</span>
+		</a>
 	</section>
 </Base>
 
@@ -55,17 +66,6 @@ import Base from '../layouts/Base.astro';
 		margin-bottom: 1rem;
 	}
 
-	.links {
-		display: flex;
-		gap: 0.75rem;
-		align-items: center;
-		font-size: 0.9rem;
-	}
-
-	.dim {
-		color: var(--text-dim);
-	}
-
 	.prompt-line {
 		font-size: 0.85rem;
 		color: var(--text-dim);
@@ -80,6 +80,45 @@ import Base from '../layouts/Base.astro';
 
 	.command {
 		color: var(--text-bright);
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1px;
+		border: 1px solid var(--border);
+	}
+
+	.card {
+		display: grid;
+		grid-template-rows: auto auto;
+		grid-template-columns: auto 1fr;
+		column-gap: 0.75rem;
+		padding: 1rem;
+		text-decoration: none;
+		border: none;
+		transition: background 0.15s;
+	}
+
+	.card:hover {
+		background: var(--surface);
+	}
+
+	.card-icon {
+		grid-row: 1 / 3;
+		align-self: center;
+		color: var(--accent);
+		font-size: 1rem;
+	}
+
+	.card-label {
+		color: var(--text-bright);
+		font-size: 0.9rem;
+	}
+
+	.card-desc {
+		color: var(--text-dim);
+		font-size: 0.78rem;
 	}
 </style>
 
