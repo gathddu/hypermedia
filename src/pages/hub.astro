@@ -1,0 +1,473 @@
+---
+import Base from '../layouts/Base.astro';
+import games from '../data/games.json';
+import anime from '../data/anime.json';
+import manga from '../data/manga.json';
+import films from '../data/films.json';
+import shows from '../data/shows.json';
+
+const categories = [
+  { id: 'games', label: 'games', icon: '[+..••]', data: games, statuses: ['playing', 'completed', 'backlog', 'dropped', 'paused'] },
+  { id: 'anime', label: 'anime', icon: '˗ˏˋ ✸ ˎˊ˗', data: anime, statuses: ['watching', 'completed', 'plan to watch', 'dropped', 'paused'] },
+  { id: 'manga', label: 'manga', icon: '⾕', data: manga, statuses: ['reading', 'completed', 'plan to read', 'dropped', 'paused'] },
+  { id: 'films', label: 'films', icon: '[◉°]', data: films, statuses: ['completed', 'watchlist', 'dropped'] },
+  { id: 'shows', label: 'shows', icon: '↻      ◁     ||     ▷       ↺', data: shows, statuses: ['watching', 'completed', 'watchlist', 'dropped', 'paused'] },
+];
+
+const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n);
+---
+
+<Base title="hub" description="personal tracker for games, anime, manga, films, and shows">
+  <section class="hub-page">
+
+    <div class="page-header">
+      <span class="breadcrumb">~/ hub</span>
+      <h1>hub</h1>
+      <p class="subtitle">personal tracker for games, anime, manga, films, and shows</p>
+    </div>
+
+    <div class="stats-bar">
+      {categories.map(cat => (
+        <div class="stat">
+          <span class="stat-value">{cat.data.length}</span>
+          <span class="stat-label">{cat.label}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="category-tabs">
+      {categories.map((cat, i) => (
+        <div class:list={['tab', { active: i === 0 }]} data-tab={cat.id}>
+          <span class="tab-icon">{cat.icon}</span>{cat.label}
+        </div>
+      ))}
+    </div>
+
+    <div class="controls">
+      <div class="filter-group">
+        <span class="control-label">status:</span>
+        <select id="status-filter" class="control-select">
+          <option value="all">all</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="control-label">sort:</span>
+        <select id="sort-select" class="control-select">
+          <option value="added">recently added</option>
+          <option value="rating">rating</option>
+          <option value="year">year</option>
+          <option value="title">title</option>
+        </select>
+      </div>
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="list" aria-label="list view">☰</button>
+        <button class="view-btn" data-view="grid" aria-label="grid view">⊞</button>
+      </div>
+    </div>
+
+    {categories.map((cat, i) => (
+      <div class:list={['category', { active: i === 0 }]} id={cat.id} data-statuses={JSON.stringify(cat.statuses)}>
+        <div class="items">
+          {cat.data.map(item => (
+            <div class="item" data-status={item.status} data-rating={item.rating} data-year={item.year} data-title={item.title} data-added={item.added}>
+              {item.cover && (
+                <div class="item-cover">
+                  <img src={item.cover} alt={item.title} loading="lazy" />
+                </div>
+              )}
+              <div class="item-info">
+                <span class="item-title">{item.title}</span>
+                <span class="item-meta">{item.studio} · {item.year} · {item.genre}</span>
+                <div class="item-tags">
+                  {item.tags.map(t => <span class="tag">{t}</span>)}
+                </div>
+              </div>
+              <div class="item-status">
+                <span class:list={['status-badge', item.status.replace(/\s+/g, '-')]}>{item.status}</span>
+                {item.rating && <span class="item-rating">{stars(item.rating)}</span>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+  </section>
+</Base>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const categories = document.querySelectorAll('.category');
+  const statusFilter = document.getElementById('status-filter') as HTMLSelectElement;
+  const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+  const viewBtns = document.querySelectorAll('.view-btn');
+
+  function getActiveCategory() {
+    return document.querySelector('.category.active') as HTMLElement;
+  }
+
+  // tabs
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      categories.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      const target = document.getElementById(tab.dataset.tab!);
+      target?.classList.add('active');
+
+      // update status filter options
+      const statuses = JSON.parse(target?.dataset.statuses || '[]');
+      statusFilter.innerHTML = '<option value="all">all</option>';
+      statuses.forEach((s: string) => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        statusFilter.appendChild(opt);
+      });
+
+      applyFilters();
+    });
+  });
+
+  // status filter
+  statusFilter.addEventListener('change', applyFilters);
+
+  // sort
+  sortSelect.addEventListener('change', () => {
+    const cat = getActiveCategory();
+    if (!cat) return;
+    const items = [...cat.querySelectorAll('.item')] as HTMLElement[];
+    const container = cat.querySelector('.items')!;
+    const sortBy = sortSelect.value;
+
+    items.sort((a, b) => {
+      if (sortBy === 'rating') return (Number(b.dataset.rating) || 0) - (Number(a.dataset.rating) || 0);
+      if (sortBy === 'year') return (Number(b.dataset.year) || 0) - (Number(a.dataset.year) || 0);
+      if (sortBy === 'title') return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+      if (sortBy === 'added') return (b.dataset.added || '').localeCompare(a.dataset.added || '');
+      return 0;
+    });
+
+    items.forEach(item => container.appendChild(item));
+  });
+
+  // toggle
+  viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      viewBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = (btn as HTMLElement).dataset.view;
+      document.querySelectorAll('.items').forEach(el => {
+        el.classList.toggle('grid-view', view === 'grid');
+      });
+    });
+  });
+
+  function applyFilters() {
+    const cat = getActiveCategory();
+    if (!cat) return;
+    const status = statusFilter.value;
+    cat.querySelectorAll('.item').forEach(item => {
+      const el = item as HTMLElement;
+      if (status === 'all' || el.dataset.status === status) {
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+
+  // init status filter for first tab
+  const firstCat = getActiveCategory();
+  if (firstCat) {
+    const statuses = JSON.parse(firstCat.dataset.statuses || '[]');
+    statuses.forEach((s: string) => {
+      const opt = document.createElement('option');
+      opt.value = s;
+      opt.textContent = s;
+      statusFilter.appendChild(opt);
+    });
+  }
+</script>
+
+<style>
+  .hub-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .page-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .stats-bar {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 1.2rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-bright);
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .category-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+
+  .tab:hover { color: var(--text-bright); }
+
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .tab-icon { margin-right: 0.4rem; opacity: 0.7; }
+
+  /* controls */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .control-label {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  .control-select {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+  }
+
+  .control-select:focus {
+    outline: 1px solid var(--accent);
+    border-color: var(--accent);
+  }
+
+  .view-toggle {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: auto;
+  }
+
+  .view-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: var(--mono);
+    transition: all 0.15s;
+  }
+
+  .view-btn:hover { border-color: var(--border-bright); color: var(--text-bright); }
+  .view-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dark); }
+
+  /* categories */
+  .category { display: none; }
+  .category.active { display: block; }
+
+  /* list view */
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .item-title {
+    font-size: 0.95rem;
+    color: var(--text-bright);
+    font-weight: 600;
+  }
+
+  .item-meta {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  .item-tags {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .item-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    padding: 0.15em 0.5em;
+    border-radius: 2px;
+    font-family: var(--mono);
+  }
+
+  .status-badge.playing,
+  .status-badge.watching,
+  .status-badge.reading {
+    background: var(--accent-dark);
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+  }
+
+  .status-badge.completed {
+    background: #112;
+    color: var(--blue);
+    border: 1px solid #336;
+  }
+
+  .status-badge.dropped {
+    background: #211;
+    color: var(--red);
+    border: 1px solid #433;
+  }
+
+  .status-badge.backlog,
+  .status-badge.watchlist,
+  .status-badge.plan-to-watch,
+  .status-badge.plan-to-read {
+    background: #111;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+
+  .status-badge.paused {
+    background: #221100;
+    color: var(--yellow);
+    border: 1px solid #443;
+  }
+
+  .item-rating {
+    font-size: 0.8rem;
+    color: var(--yellow);
+  }
+
+  /* grid view */
+  .items.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .items.grid-view .item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+  }
+
+  .items.grid-view .item-cover {
+    width: 100%;
+    height: 160px;
+  }
+
+  .items.grid-view .item-status {
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .stats-bar { gap: 1rem; flex-wrap: wrap; }
+    .controls { gap: 0.75rem; }
+    .view-toggle { margin-left: 0; }
+  }
+
+  .item-cover {
+  width: 50px;
+  height: 70px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+}
+
+.item-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+</style>

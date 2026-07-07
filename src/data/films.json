@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Perfect Blue",
+    "year": 1997,
+    "studio": "Satoshi Kon",
+    "genre": "psychological thriller",
+    "tags": ["anime", "horror"],
+    "status": "completed",
+    "rating": 5,
+    "added": "2022-10-01",
+    "cover": "/covers/perfect-blue.jpg"
+  },
+  {
+    "title": "Blade Runner 2049",
+    "year": 2017,
+    "studio": "Denis Villeneuve",
+    "genre": "sci-fi",
+    "tags": ["cyberpunk", "neo-noir"],
+    "status": "completed",
+    "rating": 5,
+    "added": "2023-02-14"
+  }
+]

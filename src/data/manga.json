@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Berserk",
+    "year": 1989,
+    "studio": "Kentaro Miura",
+    "genre": "dark fantasy",
+    "tags": ["seinen", "action", "tragedy"],
+    "status": "reading",
+    "rating": 5,
+    "added": "2022-06-01"
+  },
+  {
+    "title": "Oyasumi Punpun",
+    "year": 2007,
+    "studio": "Inio Asano",
+    "genre": "psychological",
+    "tags": ["seinen", "drama", "slice of life"],
+    "status": "completed",
+    "rating": 5,
+    "added": "2023-08-15"
+  }
+]

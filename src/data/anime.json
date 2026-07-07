@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Mob Psycho 100",
+    "year": 2016,
+    "studio": "Bones",
+    "genre": "action, comedy",
+    "tags": ["supernatural", "shonen"],
+    "status": "completed",
+    "rating": 5,
+    "added": "2023-01-10"
+  },
+  {
+    "title": "Dandadan",
+    "year": 2024,
+    "studio": "Science SARU",
+    "genre": "action, comedy",
+    "tags": ["supernatural", "romance"],
+    "status": "watching",
+    "rating": 4,
+    "added": "2024-11-20"
+  }
+]

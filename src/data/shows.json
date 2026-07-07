@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Mr. Robot",
+    "year": 2015,
+    "studio": "Sam Esmail",
+    "genre": "thriller, drama",
+    "tags": ["hacking", "psychological"],
+    "status": "completed",
+    "rating": 5,
+    "added": "2022-05-01"
+  },
+  {
+    "title": "Severance",
+    "year": 2022,
+    "studio": "Dan Erickson",
+    "genre": "sci-fi, thriller",
+    "tags": ["mystery", "corporate"],
+    "status": "watching",
+    "rating": 5,
+    "added": "2024-01-20"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Elden Ring",
+    "year": 2022,
+    "studio": "FromSoftware",
+    "genre": "action rpg",
+    "tags": ["souls-like", "open world", "pc"],
+    "status": "completed",
+    "rating": 5,
+    "added": "2024-03-15"
+  },
+  {
+    "title": "Hollow Knight: Silksong",
+    "year": 2025,
+    "studio": "Team Cherry",
+    "genre": "metroidvania",
+    "tags": ["platformer", "indie", "pc"],
+    "status": "playing",
+    "rating": 4,
+    "added": "2025-06-01"
+  }
+]
