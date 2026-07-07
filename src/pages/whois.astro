@@ -2,82 +2,219 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="whois">
-    <div class="prompt-line">
-        <span class="prompt">~</span>
-        <span class="command">whois jess</span>
-    </div>
+<Base title="whois" description="about gathddu">
+    <article class="whois">
+        <div class="page-header">
+            <span class="breadcrumb">~/ whois</span>
+            <h1>whois gathddu</h1>
+            <p class="subtitle">an incomplete record</p>
+        </div>
 
-    <h2>whois</h2>
 
-    <section class="entry">
-        <span class="label">name</span>
-        <span class="value">jess forster</span>
+        <section class="block">
+            <h2>// identity</h2>
+            <div class="kv-table">
+                <div class="kv-row">
+                    <span class="kv-key">name</span>
+                    <span class="kv-val">jess</span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">location</span>
+                    <span class="kv-val">brazil</span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">day job</span>
+                    <span class="kv-val">software developer @ <a href="https://www.dataprev.gov.br" target="_blank">dataprev</a></span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">stack</span>
+                    <span class="kv-val">java · spring boot · react · postgres · docker</span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">os</span>
+                    <span class="kv-val">nixos (btw)</span>
+                </div>
+                <div class="kv-row">
+                    <span class="kv-key">alignment</span>
+                    <span class="kv-val">chaotic good</span>
+                </div>
+            </div>
+        </section>
+
+            <section class="block">
+      <h2>// about</h2>
+      <p>
+        i write code for a living and for fun. currently building government systems at dataprev
+        — the tech backbone of brazil's social security. the stack is java and spring boot,
+        which means i've developed strong opinions about enterprise software.
+      </p>
+      <p>
+        outside of work — art, video-games and salt & vinegar crisps. i like board games with too many rules
+        and techno with too few. i run nixos because i like control and i like suffering in equal measure.
+      </p>
+      <p>
+        this site is where i put things i'm working on, thinking about, or just found interesting.
+        no algorithm, no engagement metrics, no dark patterns. just a place on the internet that's mine.
+      </p>
     </section>
 
-    <section class="entry">
-        <span class="label">role</span>
-        <span class="value">software developer @ <a href="https://www.dataprev.gov.br" target="_blank">dataprev</a></span>
+
+        <section class="block">
+      <h2>// skills</h2>
+      <div class="skill-grid">
+        <div class="skill-group">
+          <span class="skill-cat">back-end</span>
+          <div class="tags">
+            <span class="tag">java</span>
+            <span class="tag">spring boot</span>
+            <span class="tag">spring cloud</span>
+            <span class="tag">jpa/hibernate</span>
+            <span class="tag">rest apis</span>
+            <span class="tag">microservices</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">front-end</span>
+          <div class="tags">
+            <span class="tag">react</span>
+            <span class="tag">astro</span>
+            <span class="tag">typescript</span>
+            <span class="tag">css</span>
+            <span class="tag">vite</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-cat">infrastructure</span>
+          <div class="tags">
+            <span class="tag">docker</span>
+            <span class="tag">postgresql</span>
+            <span class="tag">nginx</span>
+            <span class="tag">nixos</span>
+            <span class="tag">git</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="entry">
-        <span class="label">location</span>
-        <span class="value">brazil</span>
+    <section class="block">
+      <h2>// find me</h2>
+      <div class="links">
+        <a href="https://github.com/gathddu" target="_blank" rel="noopener" class="ext-link">
+          <span class="ext-icon">⌥</span> github.com/gathddu
+        </a>
+        <a href="https://linkedin.com/in/jesssaitoforster" target="_blank" rel="noopener" class="ext-link">
+          <span class="ext-icon">⌥</span> linkedin.com/in/jesssaitoforster
+        </a>
+        <a href="mailto:jessforsterdev@gmail.com" target="_blank" rel="noopener" class="ext-link">
+          <span class="ext-icon">⌥</span> jessforsterdev@gmail.com
+        </a>
+      </div>
     </section>
 
-    <section class="entry">
-        <span class="label">stack</span>
-        <span class="value">java · spring boot · react · astro · postgresql · docker · nixos</span>
-    </section>
-
-    <section class="entry">
-        <span class="label">interests</span>
-        <span class="value">clean architecture · creative coding · art · open-source</span>
-    </section>
-
-    <section class="entry">
-        <span class="label">github</span>
-        <span class="value"><a href="https://github.com/gathddu" target="_blank">github.com/gathddu</a></span>
-    </section>
+  </article>
 </Base>
 
 <style>
-    h2 {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        color: var(--accent);
-    }
+  .whois {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
 
-    .prompt-line {
-        font-size: 0.85rem;
-        color: var(--text-dim);
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
+  .page-header {
+    border-bottom: 1px solid var(--border );
+    padding-bottom: 1.5rem;
+  }
 
-    .prompt {
-        color: var(--accent);
-    }
+  .breadcrumb {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 
-    .command {
-        color: var(--text-bright);
-    }
+  .page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
 
-    .entry {
-        display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 1rem;
-        padding: 0.6rem 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.9rem;
-    }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0;
+  }
 
-    .label {
-        color: var(--text-dim);
-    }
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    .value {
-        color: var(--text);
-    }
+  .kv-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    padding: 1rem 1.2rem;
+  }
+
+  .kv-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .kv-key {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .kv-val {
+    color: var(--text);
+  }
+
+  .skill-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .skill-cat {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ext-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .ext-icon {
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
 </style>
