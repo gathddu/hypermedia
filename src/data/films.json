@@ -7,17 +7,17 @@
     "tags": ["anime", "horror"],
     "status": "completed",
     "rating": 5,
-    "added": "2022-10-01",
+    "added": "",
     "cover": "/covers/perfect-blue.jpg"
   },
   {
-    "title": "Blade Runner 2049",
-    "year": 2017,
-    "studio": "Denis Villeneuve",
-    "genre": "sci-fi",
-    "tags": ["cyberpunk", "neo-noir"],
-    "status": "completed",
-    "rating": 5,
-    "added": "2023-02-14"
+    "title": "The Drama",
+    "year": 2025,
+    "studio": "Kristoffer Borgli",
+    "genre": "drama, comedy",
+    "tags": ["satire", "hollywood"],
+    "status": "watchlist",
+    "rating": null,
+    "added": ""
   }
 ]

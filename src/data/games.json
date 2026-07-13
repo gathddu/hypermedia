@@ -1,22 +1,32 @@
 [
   {
-    "title": "Elden Ring",
-    "year": 2022,
-    "studio": "FromSoftware",
-    "genre": "action rpg",
-    "tags": ["souls-like", "open world", "pc"],
-    "status": "completed",
-    "rating": 5,
-    "added": "2024-03-15"
-  },
-  {
-    "title": "Hollow Knight: Silksong",
-    "year": 2025,
-    "studio": "Team Cherry",
-    "genre": "metroidvania",
-    "tags": ["platformer", "indie", "pc"],
+    "title": "Tomodachi Life: Living the Dream",
+    "year": 2026,
+    "studio": "Nintendo",
+    "genre": "simulation",
+    "tags": ["simulation", "social", "switch"],
     "status": "playing",
     "rating": 4,
-    "added": "2025-06-01"
+    "added": "2026-05-02"
+  },
+  {
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "year": 2017,
+    "studio": "Nintendo",
+    "genre": "action adventure",
+    "tags": ["open world", "exploration", "switch"],
+    "status": "playing",
+    "rating": 5,
+    "added": "2026-07-13"
+  },
+  {
+    "title": "BioShock Remastered",
+    "year": 2016,
+    "studio": "2K Games",
+    "genre": "fps",
+    "tags": ["horror", "narrative", "switch"],
+    "status": "playing",
+    "rating": 5,
+    "added": "2026-07-13"
   }
 ]
