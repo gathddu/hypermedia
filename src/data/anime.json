@@ -6,8 +6,7 @@
     "genre": "romance, drama",
     "tags": ["school", "slice of life"],
     "status": "watching",
-    "rating": null,
-    "added": "2026-06-30"
+    "rating": null
   },
   {
     "title": "Dandadan",
@@ -16,7 +15,6 @@
     "genre": "action, comedy",
     "tags": ["supernatural", "romance"],
     "status": "watching",
-    "rating": 4,
-    "added": "2024-11-20"
+    "rating": 4
   }
 ]

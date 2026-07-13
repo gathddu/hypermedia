@@ -6,8 +6,7 @@
     "genre": "simulation",
     "tags": ["simulation", "social", "switch"],
     "status": "playing",
-    "rating": 4,
-    "added": "2026-05-02"
+    "rating": 4
   },
   {
     "title": "The Legend of Zelda: Breath of the Wild",
@@ -16,8 +15,7 @@
     "genre": "action adventure",
     "tags": ["open world", "exploration", "switch"],
     "status": "playing",
-    "rating": 5,
-    "added": "2026-07-13"
+    "rating": 5
   },
   {
     "title": "BioShock Remastered",
@@ -26,7 +24,6 @@
     "genre": "fps",
     "tags": ["horror", "narrative", "switch"],
     "status": "playing",
-    "rating": 5,
-    "added": "2026-07-13"
+    "rating": 5
   }
 ]

@@ -6,8 +6,7 @@
     "genre": "action, horror",
     "tags": ["shonen", "dark", "supernatural"],
     "status": "reading",
-    "rating": 5,
-    "added": "2026-07-14"
+    "rating": 5
   },
   {
     "title": "Oyasumi Punpun",
@@ -16,7 +15,6 @@
     "genre": "psychological",
     "tags": ["seinen", "drama", "slice of life"],
     "status": "completed",
-    "rating": 5,
-    "added": "2023-08-15"
+    "rating": 5
   }
 ]

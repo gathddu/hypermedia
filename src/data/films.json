@@ -7,7 +7,6 @@
     "tags": ["anime", "horror"],
     "status": "completed",
     "rating": 5,
-    "added": "",
     "cover": "/covers/perfect-blue.jpg"
   },
   {
@@ -17,7 +16,6 @@
     "genre": "drama, comedy",
     "tags": ["satire", "hollywood"],
     "status": "watchlist",
-    "rating": null,
-    "added": ""
+    "rating": null
   }
 ]

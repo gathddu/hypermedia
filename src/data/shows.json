@@ -6,8 +6,7 @@
     "genre": "thriller, drama",
     "tags": ["hacking", "psychological"],
     "status": "completed",
-    "rating": 5,
-    "added": "2022-05-01"
+    "rating": 5
   },
   {
     "title": "Severance",
@@ -16,7 +15,6 @@
     "genre": "sci-fi, thriller",
     "tags": ["mystery", "corporate"],
     "status": "watching",
-    "rating": 5,
-    "added": "2024-01-20"
+    "rating": 5
   }
 ]
